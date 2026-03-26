@@ -1,4 +1,4 @@
-import { getBot, requiredEnv } from "../src/bot.js";
+import { getInitializedBot, requiredEnv } from "../src/bot.js";
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
@@ -15,7 +15,7 @@ export default async function handler(req, res) {
   }
 
   const body = typeof req.body === "string" ? JSON.parse(req.body) : req.body;
-  const bot = getBot();
+  const bot = await getInitializedBot();
 
   await bot.handleUpdate(body);
   res.status(200).json({ ok: true });

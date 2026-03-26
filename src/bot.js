@@ -1,6 +1,7 @@
 import { Bot, GrammyError, HttpError, Keyboard } from "grammy";
 
 let botInstance;
+let botInitPromise;
 
 function requiredEnv(name) {
   const value = process.env[name];
@@ -149,7 +150,19 @@ function getBot() {
   return bot;
 }
 
+async function getInitializedBot() {
+  const bot = getBot();
+
+  if (!botInitPromise) {
+    botInitPromise = bot.init();
+  }
+
+  await botInitPromise;
+  return bot;
+}
+
 export {
   getBot,
+  getInitializedBot,
   requiredEnv,
 };
