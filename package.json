@@ -1,0 +1,28 @@
+{
+  "name": "tradelab_bot",
+  "version": "1.0.0",
+  "description": "Telegram support bot deployed on Vercel",
+  "main": "src/bot.js",
+  "scripts": {
+    "dev": "vercel dev",
+    "check": "node scripts/check-config.js",
+    "set:webhook": "node scripts/set-webhook.js",
+    "test": "node --test"
+  },
+  "keywords": [
+    "telegram",
+    "bot",
+    "support",
+    "vercel"
+  ],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "grammy": "^1.41.1"
+  },
+  "devDependencies": {
+    "vercel": "^50.37.0"
+  }
+}
