@@ -72,11 +72,7 @@ function mainKeyboard() {
 function registerHandlers(bot) {
   bot.command("start", async (ctx) => {
     await ctx.reply(
-      [
-        "Welcome to TradeLab support.",
-        "Send any message here and it will be delivered to our support team.",
-        "If you want, tap the buttons below to get started.",
-      ].join("\n"),
+      "Hi, I am TradeLab bot, created by Janob Jeyki. You can send me a bug report or impovement",
       { reply_markup: mainKeyboard() },
     );
   });
@@ -112,7 +108,7 @@ function registerHandlers(bot) {
     await ctx.api.forwardMessage(supportChatId, ctx.chat.id, ctx.msg.message_id);
 
     await ctx.reply(
-      "Your message has been sent to support. We will get back to you as soon as possible.",
+      "Your message has been received. Thank you !",
       { reply_markup: mainKeyboard() },
     );
   });
