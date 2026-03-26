@@ -93,6 +93,10 @@ function registerHandlers(bot) {
   });
 
   bot.on("message", async (ctx) => {
+    if (ctx.chat?.type !== "private") {
+      return;
+    }
+
     const text = ctx.message?.text?.trim();
     if (text && (text.startsWith("/") || text === "Contact support" || text === "How it works")) {
       return;
