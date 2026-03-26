@@ -1,3 +1,3 @@
-export function GET() {
-  return Response.json({ ok: true, service: "tradelab-support-bot" });
+export default function handler(_req, res) {
+  res.status(200).json({ ok: true, service: "tradelab-support-bot" });
 }
