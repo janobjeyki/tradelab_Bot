@@ -20,12 +20,10 @@ function escapeHtml(value) {
 
 function formatUser(user) {
   const fullName = [user.first_name, user.last_name].filter(Boolean).join(" ");
-  const username = user.username ? `@${user.username}` : "not set";
+  const identity = user.username ? `@${user.username}` : fullName || "Unknown";
 
   return [
-    `<b>Name:</b> ${escapeHtml(fullName || "Unknown")}`,
-    `<b>Username:</b> ${escapeHtml(username)}`,
-    `<b>User ID:</b> <code>${user.id}</code>`,
+    `<b>User:</b> ${escapeHtml(identity)}`,
     `<b>Language:</b> ${escapeHtml(user.language_code || "unknown")}`,
   ].join("\n");
 }
